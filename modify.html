@@ -5,17 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GIG Plateforme</title>
     <link rel="stylesheet" href="modify.css">
-    <script src="modify.js" defer></script>
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100,0..1,-50..200"> -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <div class="upbar">
 
-        <img src="picture/menuicon.svg"  onclick="sidebar()"  class="menuicon">
+        <img src="picture/menuicon.svg" onclick="toggleSidebar()"  class="menuicon">
+      
+      <a href="https://moumouh6.github.io/Profile-page/">
         <img src="picture/profil-pic.png" class="profileimg" >
+      </a>
+      
+       
     </div>
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+
+        <!-- <div>
+            <button class="close-btn" onclick="toggleSidebar()">X</button>
+        </div> -->
+
+            <!-- <ul class="active">
+                <li><a href="#" >
+                    <i class="fas fa-home"></i> Accueil</a></li>
+                <li><a href="https://moumouh6.github.io/Profile-page/">
+                    <i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="https://moumouh6.github.io/Messages/">
+                    <i class="fas fa-envelope"></i> Messages</a></li>
+                <li><a class="site-mzl">
+                    <i class="fas fa-bell"></i> Notifications</a></li>
+                <li><a class="site-mzl">
+                    <i class="fas fa-question-circle"></i> Aide</a></li>
+            </ul>
+         
+        <div class="sidebar-footer">
+            <a class="site-mzl"><i class="fas fa-cog"></i> Paramètres</a>
+            <a href="https://moumouh6.github.io/Interface/" class="logout">
+                <i class="fas fa-sign-out-alt"></i> Se déconnecter</a>
+        </div> -->
+
+        <div>
+            <button class="close-btn" onclick="toggleSidebar()">✖</button>
+            <ul >
+                <li><a href="https://am11iin.github.io/dashboard-teacher/">
+                    <i class="fas fa-home"></i> Accueil</a></li>
+                <li><a href="https://moumouh6.github.io/Profile-page/">
+                    <i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="https://nesrine-fl.github.io/site-request/request.html">
+                    <i class="fas fa-users"></i> demandes de comptes </a></li>    
+                <li><a href="https://nesrine-fl.github.io/formation/ajouter.html">
+                    <i class="fas fa-book"></i> demandes de Formation </a></li>    
+                <li><a href="#" class="active">
+                    <i class="fas fa-calendar"></i> Calendrier</a></li>    
+                <li><a href="https://moumouh6.github.io/Messages/">
+                    <i class="fas fa-envelope"></i> Messages</a></li>
+                <li><a href="https://moumouh6.github.io/Notification/">
+                    <i class="fas fa-bell"></i> Notifications</a></li>
+                <li><a href="https://moumouh6.github.io/Aide/">
+                    <i class="fas fa-question-circle"></i> Aide</a></li>
+            </ul>
+        </div>
+    
+        <div class="sidebar-footer">
+            <a class="site-mzl"><i class="fas fa-cog"></i> Paramètres</a>
+            <a href="https://moumouh6.github.io/Interface/" class="logout">
+                <i class="fas fa-sign-out-alt"></i> Se déconnecter</a>
+        </div>
+
+
+    </div>
+
     <div class="welcome-sign-container">
         <div class="welcome-sign">
             <img src="picture/Calendar.png" class="calendarimg">
@@ -30,11 +91,9 @@
         </div>
     </div>
     <p class="text2">
-        Il faut sélectionner le jour où vous souhaitez adresser la formation
-        et ensuite additionner les informations de la formation.
-        
+        Sélectionnez le département que vous voulez consulter.
     </p>
-    <div class="department-container">
+    <!-- <div class="department-container">
         <div class="depatement">
             <button class="dep">
                 <p class="text">RH Dep</p> 
@@ -81,15 +140,68 @@
             <button class="dep">
                 <p class="text">Center Regional Delegation</p> 
             </button>
-        </div>    
+        </div>     -->
+        <!-- <div class="department-container">
+            <button id="go-back" onclick="toggleDepartments()" data-visible="false">
+                <img src="picture/chevron-left.svg" class="arrowimg"> 
+            </button>
+            
+            <div id="department-list" class="department-list">
+                
+                <div class="department-item" data-visible="true">Human Resources department</div>
+                <div class="department-item" data-visible="true">Marketing Department</div>
+                <div class="department-item" data-visible="true">Information Technology Department</div>
+                <div class="department-item" data-visible="true">Network Department</div>
+                <div class="department-item" data-visible="true">Underwriting Department</div>
+                <div class="department-item" data-visible="true">Legal and Compliance Department</div>
+                <div class="department-item" data-visible="true">Business Devlopment Department</div>
+                <div class="department-item" data-visible="true">Claims Department</div>
+                
+                
+                <div class="department-item" data-visible="false">Reinsurance Department</div>
+                <div class="department-item" data-visible="false">Prevention Department</div>
+                <div class="department-item" data-visible="false">Finance & Accounting Department</div>
+                <div class="department-item" data-visible="false">Quality & Internal Control Department</div>
+                <div class="department-item" data-visible="false">Executive Management Department</div>
+                <div class="department-item" data-visible="false">Center Regional Delegation Department</div>
+            </div>
+    
+            <button id="see-more-btn" onclick="toggleDepartments()" data-visible="true">
+                <img src="picture/chevron-right.svg" class="arrowimg">
+            </button>
+            
+        </div> -->
         
+        <input type="text" placeholder="Enter le departement " style="display: none; "
+        class="input-dep"></input>
         
-        <button class="arroww">
-                <img src="picture/arrow.svg" class="arrowimg">
-        </button>
-        
-    </div>
-    <h2 class="text3">le calendrier associé aux RH</h2>
+    <div class="dep-container">
+        <div class="button-container">
+            <div class="buttons">
+              <button class="button"  data-department="RH">Human Resources</button>
+              <button class="button"  data-department="Marketing">Marketing</button>
+              <button class="button"  data-department="Information Technology">Information Technology</button>
+              <button class="button"  data-department="Network">Network</button>
+              <button class="button"  data-department="Underwriting">Underwriting</button>
+              <button class="button"  data-department="Legal and Compliance">Legal and Compliance</button>
+              <button class="button"  data-department="Business Devlopment">Business Devlopment</button>
+              <button class="button"  data-department="Claims">Claims</button>
+              <button class="button"  data-department="Reinsurance">Reinsurance</button>
+              <button class="button"  data-department="Prevention">Prevention</button>
+              <button class="button"  data-department="Finance & Accounting">Finance & Accounting</button>
+              <button class="button"  data-department="Quality & Internal Control">Quality & Internal Control</button>
+              <button class="button"  data-department="Executive Management">Executive Management</button>
+              <button class="button"  data-department="Center Regional Delegation">Center Regional Delegation</button>
+            </div>
+        <div class="see-more-container">
+            <button class="see-more">Voir plus</button>
+        </div>
+        </div>
+    </div>  
+    <p class="text2">
+        les jours en beige sont réservés pour des formations soit en ligne ou en présentiel. Cliquez sur ces jours pour voir plus de détails et les modifier.
+    </p>
+    <h2 id="text3">Le calendrier associé aux RH Departement</h2>
     <div class="calendar-container">
         <div class="wrapper">
             <header class="header">
@@ -124,7 +236,7 @@
                     <li>28</li>
                     <li>1</li>
                     <li>2</li>
-                    <li>3</li>
+                    <li class="cours">3</li>
                     <li>4</li>
                     <li>5</li>
                     <li>6</li>
@@ -143,7 +255,7 @@
                     <li>19</li>
                     <li>20</li>
                     <li>21</li>
-                    <li>22</li>
+                    <li class="cours">22</li>
                     <li>23</li>
                     <li>24</li>
                     <li>25</li>
@@ -158,70 +270,142 @@
     </div>
     <div class="info-container">
         <div class="info">
-            <div class="date-name">
-                <div class="photo-dateinfo">
+            <div class="photo-dateinfo">
                     <div class="pic-container">
                         <img src="picture/formation-pic.jpg" class="formation-pic">
                     </div>
                     <div class="date-info">
-                        <p class="date">10 février 2025</p>
-                        <p class="nom-de-cour">Relations avec les employés et gestion des conflits</p>
-                        <p class="nom-de-prof">Amani Amel</p>
+                        <div class="edit-hover">
+                            <p class="mod date">10 février 2025</p> 
+                            <img src="picture/3dots.svg" class="dot3 " id="icon-svg">  
+                           
+                        </div>
+                        
+                        <div class="edit-hover">
+                            <p class="mod nom-de-cour">Relations avec les employés et gestion des conflits</p> 
+                            <img src="picture/3dots.svg" class="dot3">
+                            
+                        </div>
+                        
+                        <div class="edit-hover">
+                            <p class="mod nom-de-prof">Amani Amel</p> 
+                            <img src="picture/3dots.svg" class="dot3">
+                            
+                        </div>
+                        <div class="menu-wrapper" id="target-div">
+                            <div class="black edit">📝 modifier</div>
+                            <div class="black">📤 Transférer</div>       
+                            <div class="black">📋 Copier</div>
+                            <div class="report">⚠️ Signaler</div>
+
+                        </div>
                     </div>
                 </div>
-                <div class="edit">
-                    <img src="picture/edit-icon.svg" class="edit-icon">
-
-
-                </div>
-            </div>
-            <div class="dep-type">
-                <div class="dep-type-time">
-                    <p>9 am -10 am </p>
-                    <p class="middle-dot">&#xB7;</p>
-                    <p>Ressources humaines </p>
-                    <p class="middle-dot">&#xB7;</p>
-                    <p>Enligne</p>  
+              
+                <div class="dep-type">
+                    <div class="dep-type-time">
+                        <div class="edit-hover">
+                        <p>9 am -10 am </p>
+                        <img src="picture/3dots.svg" class="dot3">
+                        </div>
                     
-                </div>
-                <div class="trash">
-                   <img src="picture/trash-icon.svg"  class="trash-icon">
+                        <p class="middle-dot">&#xB7;</p>
+                        
+                        <div class="edit-hover">
+                        <p>Ressources humaines </p>
+                        <img src="picture/3dots.svg" class="dot3">
+                        </div>
+                        <p class="middle-dot">&#xB7;</p>
+                        <div class="edit-hover">
+                        <p>Enligne</p>  
+                        <img src="picture/3dots.svg" class="dot3">
+                        </div>
+                       
+                        
+                    </div>
+                    <div class="trash">
+                         <img src="picture/trash-icon.svg"  class="trash-icon">
+                    </div>
                 </div>
             </div>
-        </div>
+            
+        </div> 
+    </div>        
     <div class="info-container">
         <div class="info">
-            <div class="date-name">
-                <div class="photo-dateinfo">
+            <div class="photo-dateinfo">
                     <div class="pic-container">
-                        <img src="picture/formation-pic.jpg" class="formation-pic">
+                        <img src="picture/shrm.webp" class="formation-pic">
                     </div>
                     <div class="date-info">
-                        <p class="date">10 février 2025</p>
-                        <p class="nom-de-cour">Relations avec les employés et gestion des conflits</p>
-                        <p class="nom-de-prof">Amani Amel</p>
+                        <div class="edit-hover">
+                            <p class="date">24 février 2025</p> 
+                            <img src="picture/3dots.svg" class="dot3">  
+                           
+                        </div>
+                        
+                        <div class="edit-hover">
+                            <p class="nom-de-cour">Gestion stratégique des ressources humaines</p> 
+                            <img src="picture/3dots.svg" class="dot3">
+                            
+                        </div>
+                        
+                        <div class="edit-hover">
+                            <p class="nom-de-prof">Hamadi Ali</p> 
+                            <img src="picture/3dots.svg" class="dot3">
+                            
+                        </div>
+                        <div class="menu-wrapper">
+                            <div class="edit black">📝 modifier</div>
+                            <div class="black">📤 Transférer</div>       
+                            <div class="black">📋 Copier</div>
+                            <div class="report">⚠️ Signaler</div>
+
+                        </div>
                     </div>
                 </div>
-                <div class="edit">
-                    <img src="picture/edit-icon.svg" class="edit-icon">
-
-
-                </div>
-            </div>
-            <div class="dep-type">
-                <div class="dep-type-time">
-                    <p>9 am -10 am </p>
-                    <p class="middle-dot">&#xB7;</p>
-                    <p>Ressources humaines </p>
-                    <p class="middle-dot">&#xB7;</p>
-                    <p>Enligne</p>  
+              
+                <div class="dep-type">
+                    <div class="dep-type-time">
+                        <div class="edit-hover">
+                        <p>9 am -10 am </p>
+                        <img src="picture/3dots.svg" class="dot3">
+                        </div>
                     
-                </div>
-                <div class="trash">
-                   <img src="picture/trash-icon.svg"  class="trash-icon">
+                        <p class="middle-dot">&#xB7;</p>
+                        
+                        <div class="edit-hover">
+                        <p>Ressources humaines </p>
+                        <img src="picture/3dots.svg" class="dot3">
+                        </div>
+                        <p class="middle-dot">&#xB7;</p>
+                        <div class="edit-hover">
+                        <p>Présentiel</p>  
+                        <img src="picture/3dots.svg" class="dot3">
+                        </div>
+                       
+                        
+                    </div>
+                    <div class="trash">
+                         <img src="picture/trash-icon.svg"  class="trash-icon">
+                    </div>
                 </div>
             </div>
-        </div>   
+            
+        </div> 
+        
+
+    </div>
+ 
+
+    
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+          <p>Êtes-vous sûr de vouloir supprimer ce cours ?</p>
+          <button id="confirm-delete">Supprimer</button>
+          <button id="cancel-delete">Annuler</button>
+        </div>
     </div>
     <!-- code contact -->
     <section class="contact" id="contact">
@@ -339,5 +523,6 @@
             </div>
         </div>
     </section>
+    <script src="modify.js"></script>
 </body>
 </html>

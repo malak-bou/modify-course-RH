@@ -47,6 +47,242 @@ prevNextIcon.forEach(icon => { // getting prev and next icons
 });
 
 
-function sidebar(){
-    
+
+// Function to open/close the sidebar
+function toggleSidebar() {
+    var sidebar = document.getElementById("sidebar");
+    // Check the current width of the sidebar and adjust it
+    if (sidebar.style.width === "250px") {
+        sidebar.style.width = "0"; // Close the sidebar
+    } else {
+        sidebar.style.width = "250px"; // Open the sidebar
+    }
 }
+
+
+
+
+
+
+
+
+
+// code for selection of the departements
+
+const seeMoreButton = document.querySelector('.see-more');
+const buttonContainer = document.querySelector('.button-container');
+
+seeMoreButton.addEventListener('click', () => {
+  // Toggle 'show-more' class to slide buttons in/out
+  buttonContainer.classList.toggle('show-more');
+
+  // Change button text based on state
+  if (buttonContainer.classList.contains('show-more')) {
+    seeMoreButton.textContent = "Retour"; // Change text when buttons are expanded
+  } else {
+    seeMoreButton.textContent = "Voir plus"; // Change text when buttons are collapsed
+  }
+});
+
+
+
+
+
+
+
+
+
+
+// changing the dep text
+const departmentButtons = document.querySelectorAll(".button"); // Fix variable name
+const textChange = document.getElementById('text3'); // Ensure element exists
+
+departmentButtons.forEach(button => { // Use the correct variable
+  button.addEventListener('click', () => {
+    const department = button.getAttribute('data-department'); // Get department name
+    textChange.textContent = `le calendrier associé aux ${department} Departement`;
+  });
+});
+
+
+  
+
+
+
+
+
+
+// code for the delete courses 
+
+
+// Get references to the delete button, popup and confirm buttons
+const deleteButtons = document.querySelectorAll('.trash-icon');
+const popup = document.getElementById('popup');
+const confirmDeleteButton = document.getElementById('confirm-delete');
+const cancelDeleteButton = document.getElementById('cancel-delete');
+let selectedCourse = null; // Track the selected course to delete
+
+// Add event listeners for delete buttons
+deleteButtons.forEach(button => {
+  button.addEventListener('click', (event) => {
+    // Get the div that contains the course
+    selectedCourse = event.target.closest('.info');
+    
+    // Show the confirmation popup
+    popup.style.display = 'flex';
+  });
+});
+
+// Handle the confirmation to delete the course
+confirmDeleteButton.addEventListener('click', () => {
+  // Remove the selected course div
+  selectedCourse.remove();
+  
+  // Close the popup
+  popup.style.display = 'none';
+  selectedCourse = null; // Reset selected course
+});
+
+// Handle cancel action
+cancelDeleteButton.addEventListener('click', () => {
+  // Just close the popup without doing anything
+  popup.style.display = 'none';
+  selectedCourse = null; // Reset selected course
+});
+
+
+// menu showing after clicking dot3
+    const menuWrapper = document.querySelector('.menu-wrapper');
+    const menuButtons = document.querySelectorAll('.dot3');
+
+    menuButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            const rect = button.getBoundingClientRect();
+            menuWrapper.style.top = `${rect.bottom + 5}px`;
+            menuWrapper.style.left = `${rect.left}px`;
+            menuWrapper.classList.add('show');
+            event.stopPropagation(); // Prevent closing when clicking the button
+        });
+    });
+
+    document.body.addEventListener('click', () => {
+        menuWrapper.classList.remove('show');
+    });
+
+    menuWrapper.addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent closing when clicking inside the menu
+    });
+  
+    document.addEventListener("DOMContentLoaded", function () {
+        const menu = document.getElementById("target-div");
+        const editButtons = document.querySelectorAll(".dot3");
+        let currentEditableElement = null;
+        let tempText = "";
+    
+        // Show menu when clicking the 3-dot icon
+        editButtons.forEach(button => {
+            button.addEventListener("click", (event) => {
+                event.stopPropagation();
+                const parent = button.closest(".edit-hover");
+                currentEditableElement = parent.querySelector("p");
+    
+                // Position the menu
+                menu.style.top = `${event.clientY}px`;
+                menu.style.left = `${event.clientX}px`;
+                menu.classList.add("show");
+            });
+        });
+    
+        // Hide menu when clicking outside
+        document.addEventListener("click", () => {
+            menu.classList.remove("show");
+        });
+    
+        // Edit function
+        document.querySelector(".edit").addEventListener("click", function () {
+            if (currentEditableElement) {
+                tempText = currentEditableElement.textContent;
+                const input = document.createElement("input");
+                input.type = "text";
+                input.value = tempText;
+                input.style.border = "2px solid gray";  
+                input.style.padding = "5px";  
+                input.style.borderRadius = "5px";  
+                input.style.fontSize = "16px";  
+                input.style.color = "#333";  
+                input.style.backgroundColor = "#f9f9f9";  
+                input.style.outline = "none";
+
+
+
+                input.classList.add("editable");
+                currentEditableElement.replaceWith(input);
+                input.focus();
+    
+                // Handle Enter key
+                input.addEventListener("keydown", function (event) {
+                    if (event.key === "Enter") {
+                        event.preventDefault(); // Prevent default form submission
+                        showPopup(input);
+                    }
+                });
+    
+                // Cancel editing if user clicks outside
+                input.addEventListener("blur", function () {
+                    input.replaceWith(currentEditableElement);
+                });
+            }
+        });
+    
+        // Copy function
+        document.querySelector(".black:nth-child(3)").addEventListener("click", function () {
+            if (currentEditableElement) {
+                navigator.clipboard.writeText(currentEditableElement.textContent).then(() => {
+                    alert("Text copied!");
+                });
+            }
+        });
+    
+        // Prevent menu from closing when clicking inside
+        menu.addEventListener("click", (event) => {
+            event.stopPropagation();
+        });
+    
+        // Show confirmation popup
+        function showPopup(input) {
+            let popup = document.getElementById("popup-container");
+    
+            // Create popup only if it doesn't exist
+            if (!popup) {
+                popup = document.createElement("div");
+                popup.id = "popup-container";
+                popup.classList.add("popup");
+                popup.innerHTML = `
+                    <div class="popup-content">
+                        <p>Voulez-vous enregistrer les modifications ?</p>
+                        <button class="save-btn">Sauvegarder</button>
+                        <button class="cancel-btn">Annuler</button>
+                    </div>
+                `;
+                document.body.appendChild(popup);
+            }
+    
+            popup.style.display = "flex"; // Show the popup
+    
+            // Save changes
+            popup.querySelector(".save-btn").addEventListener("click", function () {
+                currentEditableElement.textContent = input.value;
+                input.replaceWith(currentEditableElement);
+                popup.style.display = "none"; // Hide popup after saving
+            });
+    
+            // Cancel changes
+            popup.querySelector(".cancel-btn").addEventListener("click", function () {
+                input.value = tempText; // Revert to original text
+                input.replaceWith(currentEditableElement);
+                popup.style.display = "none"; // Hide popup after canceling
+            });
+        }
+    });
+    
+    
