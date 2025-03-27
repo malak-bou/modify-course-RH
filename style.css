@@ -108,7 +108,8 @@ body{
 .sidebar ul {
     list-style: none;
     padding: 0;
-    margin: 60px 0 0;
+    margin: 0;
+
 }
 
 .sidebar ul li {
@@ -224,7 +225,7 @@ body{
     top: 0;
     right: -350px; /* Move further out */
     width: 300px;
-    height: 100vh;
+    height: 100%;
     background:white;
     color: black;
     padding: 20px;
@@ -285,7 +286,7 @@ body{
 
   .profile-side-bar{
     width:270px;
-    height: 250px;
+    height: 200px;
     background: #1A0495;
     border-radius: 10px;
     display: flex;
@@ -293,13 +294,17 @@ body{
     /* justify-content: center; */
     align-items: center;
     margin-top: 25px;
-    gap: 20px;
+    gap: 10px;
     padding-top:20px ;
   }
 
 
 
-
+.rh-commun{
+    border-radius:10px;
+    width: 90px;
+    height: 60px;
+}
 
 
 
@@ -569,7 +574,7 @@ here*/
 
 
 
-
+/* sidebar2 */
 
   .wrapper2{
     margin-top: 30px;
@@ -581,12 +586,16 @@ here*/
 .wrapper2 header{
     display: flex;
     align-items: center;
-    padding: 25px 30px 10px;
+    padding-top:10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
     justify-content: space-between;
-
+  
 }
 header .icons2{
     display: flex;
+    gap: 10px;
 }
 header .icons2 img{
     height: 38px;
@@ -610,9 +619,11 @@ header .icons2 img:hover {
 header .current-date2 {
     font-size: 1.45rem;
     font-weight: 500;
+    color: white !important;
 }
 .calendar2{
     padding: 20px;
+    padding-top: 10px;
 
 }
 
@@ -627,10 +638,10 @@ header .current-date2 {
     margin-bottom: 20px;
 }
 .calendar2 li{
-    color: #333;
+    color: white;
 
     width: calc(100% / 7);
-    font-size: 1.07rem;
+    font-size: 15px;
 }
 .calendar2 .weeks li {
     font-weight: 500;
@@ -648,6 +659,7 @@ header .current-date2 {
     width: 30px;
     border-radius: 50%;
     height: 30px;
+    
 }
 /* .calendar ul li {
     position: relative;
@@ -698,12 +710,13 @@ header .current-date2 {
   .cours {
     background: #D28C64;
     border-radius: 50%;
+    color: black!important;
   }
 
 
 
 
-.header p{
+/* .header p{
     color: black;
 }
 .weeks li{
@@ -711,10 +724,42 @@ header .current-date2 {
 }
 .days li{
     color: black;
+    
+} */
+
+
+.cours-sidebar{
+    width: 16.875rem;
+    height: 3.75rem;
+    margin-top: 20px;
+    border-radius: 10px;
+    background: #d4d4d4;
+    position: center;
+    display: flex;
+    flex-direction: row;
+
 }
+.cours-sidebar p{
+    font-size: 10px;
+    color: black;
+    
+} 
+.infooo{
+    margin-left: 10px;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5px;
+    font-weight: bold;
+}
+.nom-cour{
+    font-size: 10px;
+    color: black;
 
-
-
+}
+.date-cour2{
+    color: #1A0495 !important;
+}
 
 
 
