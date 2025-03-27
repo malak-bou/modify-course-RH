@@ -48,10 +48,10 @@ body{
     position: fixed;
     top: 0;
     left: 0;
+    
     background-color: #fff;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 60px;
     color: #333;
     transition: left 0.3s ease-in-out;
     z-index: 1000;
@@ -70,6 +70,7 @@ body{
     font-size: 18px;
     color: #555;
     transition: color 0.3s ease-in-out;
+    gap: 10p;
 }
 
 
@@ -100,7 +101,7 @@ body{
 }
 
 .close-btn:hover {
-    transform: rotate(90deg);
+
     color: red;
 }
 
@@ -130,6 +131,7 @@ body{
     text-decoration: none;
     font-size: 18px;
     padding: 12px;
+    
     font-weight: 600;
     transition: all 0.3s ease-in-out;
     border-radius: 5px;
@@ -215,6 +217,25 @@ body{
     border: none;
     cursor: pointer;
 } */
+
+
+
+.upperbare{
+    margin-top: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
